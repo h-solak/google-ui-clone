@@ -57,21 +57,3 @@ fetch('https://api.ipregistry.co/?key=lsqqr4zosekvcstb')
         let countryName = payload.location.country.name;
         document.getElementById("location").innerHTML = countryName;
     });
-
-
-//DYNAMIC FAVICON FOR BOTH DARK THEME AND LIGHT THEME
-lightSchemeIcon = document.querySelector('link#light-scheme-icon');
-darkSchemeIcon = document.querySelector('link#dark-scheme-icon');
-
-function onUpdate() {
-    if (matcher.matches) {
-        lightSchemeIcon.remove();
-        document.head.append(darkSchemeIcon);
-    } else {
-        document.head.append(lightSchemeIcon);
-        darkSchemeIcon.remove();
-    }
-}
-matcher = window.matchMedia('(prefers-color-scheme: dark)');
-matcher.addListener(onUpdate);
-onUpdate();
